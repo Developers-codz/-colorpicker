@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Color-Picker</title>
+  </head>
+  <body></body>
+</html>
+<html>
+  <head>
+    <title>colorPicker</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      #container {
+        width: 500px;
+        height: 400px;
+        /* border:2px solid black; */
+        margin-top: 100px;
+        margin-left: 500px;
+        box-shadow: 10px 10px 4px grey;
+        border-radius: 10px;
+      }
+
+      #header {
+        width: inherit;
+        height: 50px;
+        text-align: center;
+        font-family: cursive;
+        color: rgb(123, 220, 148);
+        font-size: 200%;
+      }
+
+      #colorDiv {
+        width: inherit;
+        height: 50px;
+        background-color: rgb(123, 220, 148);
+        text-align: center;
+        font-family: cursive;
+        color: white;
+        font-size: 200%;
+        padding: 10px;
+      }
+
+      #content {
+        margin-left: 150px;
+        padding: 20px;
+        color: rgb(123, 220, 148);
+      }
+    </style>
+  </head>
+  <body style="background-color:black" ;>
+    <div id="container">
+      <div id="header">Color@Picker</div>
+      <div id="colorDiv">
+        rgb(<span id="redCode">123</span>, <span id="greenCode">220</span>,
+        <span id="blueCode">148</span> )
+      </div>
+      <div id="content">
+        <input
+          type="range"
+          value="123"
+          ;
+          min="0"
+          max="255"
+          id="red"
+          oninput="controller()"
+          ;
+          onchange="controller()"
+          ;
+        />
+        <br />Red<br />
+        <input
+          type="range"
+          value="220"
+          min="0"
+          max="255"
+          id="green"
+          oninput="controller()"
+          ;
+          onchange="controller()"
+          ;
+        />
+        <br />Green<br />
+        <input
+          type="range"
+          value="148"
+          min="0"
+          max="255"
+          id="blue"
+          oninput="controller()"
+          ;
+          onchange="controller()"
+          ;
+        />
+        <br />Blue<br />
+      </div>
+    </div>
+
+    <script>
+      function controller() {
+        var red = document.getElementById('red').value;
+        var green = document.getElementById('green').value;
+        var blue = document.getElementById('blue').value;
+
+        document.getElementById('redCode').innerHTML = red;
+        document.getElementById('greenCode').innerHTML = green;
+        document.getElementById('blueCode').innerHTML = blue;
+
+        document.getElementById(
+          'colorDiv'
+        ).style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+        document.getElementById(
+          'container'
+        ).style.boxShadow = `10px 10px 8px rgb(${red} , ${green} , ${blue})`;
+        document.getElementById(
+          'header'
+        ).style.color = `rgb(${red} , ${green} , ${blue})`;
+        document.getElementById(
+          'content'
+        ).style.color = `rgb(${red} , ${green} , ${blue})`;
+      }
+
+      // if(navigator.onLine)
+      //     alert("online");
+      // else
+      //     alert("offline");
+    </script>
+  </body>
+</html>
